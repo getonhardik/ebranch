@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 'opensans';
+	src: url('../font/opensans-webfont.eot');
+	src: url('../font/opensans-webfont?#iefix') format('embedded-opentype'),
+		url('../font/opensans-webfont.woff') format('woff'),
+		url('../font/opensans-webfont.eot.ttf') format('truetype'),
+		url('../font/opensans-webfont.eot.svg#SingleMaltaRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}

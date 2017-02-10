@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link href="css/assets.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+</head>
+<body>
+<header class="header-index bar bar-nav out" id="header-fload">
+    <a class="menu-toggle icon fa fa-bars pull-left"></a>
+    <a href="search.html" class="icon fa fa-search pull-left"></a>
+    <a href="" data-formdata="" id="cartIcon" class="icon fa fa-shopping-cart pull-right"></a>
+    <a class="icon fa fa-qrcode pull-right qrcode"></a>
+    <h2 class="title"><img src="images/logo.png" width="40%"></h2>
+</header>
+
+<div class="slider" id="firstTime">
+    <div class="slide-group">
+        <div class="slide">
+            <img src="images/spash1.png">
+        </div>
+        <div class="slide">
+            <img src="images/spash2.png">
+        </div>
+        <div class="slide">
+            <img src="images/spash3.png" class="enter-button">
+        </div>
+    </div>
+</div>
+
+<div class="page-loading loading"></div>
+
+<div class="header-index swiper-container swiper-pagination" id="header-pagination">
+    <div class="swiper-wrapper">
+    </div>
+</div>
+
+<div class="frame">
+    <div id="pageWrapper">
+        <div id="pageScroller">
+        </div>
+    </div>
+</div>
+
+<div class="tools none">
+    <a href="/sales/order/history/" id="orderIcon" data-formdata="" data-ajax="false">
+        <i class="fa fa-user"></i>
+    </a> |
+    <a href="/wishlist/" id="wishIcon" data-formdata="" data-ajax="false">
+        <i class="fa fa-heart"></i>
+    </a>
+</div>
+
+<div class="card cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" style="overflow: visible;">
+    <h3>
+        <span class="login_false">
+            <span class="icon icon-person" id="login_id"></span>
+        </span>
+        <span class="login_false">
+            <a href="login.html">&nbsp;Login&nbsp;</a> | &nbsp;<a href="detail.html" data-formdata="title=Register&frameUrl=register.html" data-ajax="fasle">Register</a>
+        </span>
+        
+        <span class="login_true userinfo">
+            <img src="" width="36" height="36">
+            <span></span>
+        </span>
+        <span class="icon icon-close pull-right menu-close"></span>
+    </h3>
+    <ul class="table-view cbp-spmenu-list">
+    </ul>
+</div>
+<div class="menu-bottom"></div>
+
+<!--Handlebars.js-->
+<!--######菜单列表 ######-->
+<script id="menu-template" type="text/x-handlebars-template">
+    {{#each menus}}
+    <li class="table-view-cell {{class_name}}"><a href="{{url}}">{{name}}</a></li>
+    {{/each}}
+</script>
+
+<script id="slide-template" type="text/x-handlebars-template">
+    {{#each menus}}
+    <div id="{{id}}" class="page page-index out">
+        <div class="scroller">
+            <div class="pullDown">
+                <span class="pullDownIcon"></span>
+                <span class="pullDownLabel"></span>
+            </div>
+            <div class="products-grid"></div>
+            <div class="pullUp">
+                <span class="pullUpIcon"></span>
+                <span class="pullUpLabel">Loading...</span>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<!--######商品列表部分, 1column ######-->
+<script id="item-template" type="text/x-handlebars-template">
+    {{#each items}}
+    <div class="item">
+        <div class="item-inner">
+			<!--###### rest详情页的父Frame ######-->
+			<a href="productFrame.html" data-formdata="frameUrl=productDetail.html&entity_id={{entity_id}}&share=true" data-reload="root" data-ajax="true">
+            <div class="product-image">
+                <img class="lazy small-image" data-original="{{image_url}}" alt="{{name}}">
+            </div>
+            </a>
+
+            <div class="product-info">           		
+                <div class="product-name">
+					<a href="detail.html?title=Product Detail&frameUrl={{../baseWeb}}/catalog/product/view/id/{{entity_id}}&share=true"  data-reload="root">{{name}}</a>
+                </div>
+
+                <div class="product-price">
+                    <div class="price-box">
+                        <span class="special-price">
+                            <span class="special-price">
+                                <span class="price">Tsh{{final_price_with_tax}}</span> 
+                                &nbsp;
+                                <span class="old-price">Tsh{{regular_price_with_tax}}</span>
+                            </span>
+                        </span>
+                        <span class="discount {{price_percent_class}}">
+                            <span class="price">{{price_percent}}%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+		
+
+<!-- 使用 cordova 插件要用到，不能删除，发布时增加 -->
+<script src="cordova.js"></script> 
+<script src="js/assets.js"></script>
+<script src="js/config.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
