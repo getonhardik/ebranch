@@ -32,51 +32,35 @@
               <form action="/customer/account/createpost/" method="post" id="user_create_form" class="form">
                 <input type="hidden" name="success_url" id="success_url" value="">
                 <input type="hidden" name="error_url" value="">
-                <p class="form__field form__field--required"> 
-                  <!--<label class="form__label form__label--required">Mobile Number</label>-->
-                  <input type="text" placeholder="Mobile Number" class="form__textfield textfield required-entry validate-number validation-failed" name="default_mobile_number" id="default_mobile_number" value="" title="Mobile Number">
-                </p>
                 <!-- .form__field -->
                 
                 <!-- .form__field -->
                 
-                <p class="form__field form__field--required"> 
-                  <!--<label for="email_address" class="form__label form__label--required">Email Address</label>-->
-                  <input type="email" placeholder="Email" class="form__textfield textfield validate-email required-entry" name="email" id="email" value="" title="Email Address">
-                </p>
                 <!-- .form__field -->
                 <p class="form__field form__field--required"> 
                   <!--<label class="form__label form__label--required">First Name</label>-->
                   <input type="text" placeholder="First Name" class="form__textfield textfield required-entry" id="firstname" name="firstname" value="" title="First Name">
+                </p>
+                <p class="form__field form__field--required"> 
+                  <!--<label class="form__label form__label--required">First Name</label>-->
+                  <input type="text" placeholder="Middle Name" class="form__textfield textfield required-entry" id="middlename" name="middlename" value="" title="Middle Name">
                 </p>
                 <!-- .form__field -->
                 <p class="form__field form__field--required"> 
                   <!--<label class="form__label form__label--required">Last Name</label>-->
                   <input type="text" placeholder="Last Name" class="form__textfield textfield required-entry" id="lastname" name="lastname" value="" title="Last Name">
                 </p>
-                <!-- .form__field -->
-                <p class="form__field form__field--required">
-                  <label class="form__label form__label--required" for="gender" style="display:inline;">Gender</label>
-                  <input name="gender" type="radio" value="man" style="display:inline; margin:0 4px 0 20px;" checked><span style="font-size:14px;">Male</span>
-                  <input name="gender" type="radio" value="women" style="display:inline;margin:0 4px 0 20px;"><span style="font-size:14px;">Female</span>
-                  <!--<select class="form__select validate-select" id="gender" name="gender" title="Gender">
-                    <option value=""></option>
-                    <option value="1" selected="selected">Male</option>
-                    <option value="2">Female</option>
-                  </select>-->
+                <p class="form__field form__field--required"> 
+                  <!--<label for="email_address" class="form__label form__label--required">Email Address</label>-->
+                  <input type="email" placeholder="Email" class="form__textfield textfield validate-email required-entry" name="email" id="email" value="" title="Email Address">
                 </p>
+                <!-- .form__field -->
                 <!-- .form__field -->
                 <div id="register-customer-password">
                   <p class="form__field form__field--required"> 
                     <!--<label for="password" class="form__label form__label--required">Password</label>-->
                     <input placeholder="Password (6 characters contain numbers and letters)" class="form__textfield textfield required-entry validate-password" type="password" name="password" id="password" title="Password">
                   </p>
-                  <!-- .form__field -->
-<!--                  <p class="form__field form__field--required"> 
-                    <label for="confirmation" class="form__label form__label--required">Confirm Password</label>
-                    <input placeholder="Confirm Password" class="form__textfield textfield required-entry validate-cpassword" type="password" name="confirmation" title="Confirm Password" id="confirmation">
-                  </p>-->
-                  <!-- .form__field --> 
                 </div>
                 <div class="form__field none">
                   <ul class="form__checkboxes">
@@ -89,11 +73,7 @@
                 <p class="form__submit-wrapper">
                     <a name="register" class="btn btn-positive btn-block" style="background-color: #343434 !important;font-size: 20px">Register</a>
                 </p>
-                
-                <!--<a name="register" class="btn btn-positive btn-block" style="background-color: #343434 !important;font-size: 20px">Register</a>-->
-                <!-- .form__submit-wrapper -->
               </form>
-              <!--<a class="create_form_link button" href="login.html" style="height:40px; line-height:40px; padding:0;">Back To Login</a> </div>-->
           </div>
         </div>
       </div>
@@ -107,14 +87,14 @@
     <script>
     $('[name="register"]').on('click',function () {
        
-                var default_mobile_number = $('[name="default_mobile_number"]').val(),
+                var middlename = $('[name="middlename"]').val(),
 //                    password = $('[name="password"]').val(),
                     email = $('[name="email"]').val(),
                     firstname = $('[name="firstname"]').val(),
                     lastname = $('[name="lastname"]').val(),
                     gender = $('[name="gender"]').val(),
                     password = $('[name="password"]').val();
-                servers.register(default_mobile_number, email,firstname, lastname, gender ,password, function (res) {
+                servers.register(middlename, email,firstname, lastname, gender ,password, function (res) {
                     if (res) {
                         if(res['status'] == true){
                         alert("register succsessfully");

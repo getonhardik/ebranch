@@ -1,6 +1,4 @@
-
-
-$(document).ready(function ready() {
+function ready() {
     var currentPage = 0, // å½“å‰?åˆ‡æ?¢é¡µé?¢ index
         bannerSwiper,
         $pages,
@@ -227,36 +225,13 @@ $(document).ready(function ready() {
             $this.find('[name="login"]').off('click').click(function () {
                 var username = $this.find('[name="username"]').val(),
                     password = $this.find('[name="password"]').val();
+
                 servers.login(username, password, function (res) {
                     if (res) {
-                        setStorage("user_id", res.id);
+                         setStorage("user_id", res.id);
                         setStorage("user_name", res.name);
                         setStorage("user_email", res.email);
                         history.back();
-                        //initUser(); æ”¹åœ¨ into indexé‡Œå¤„ç?†äº†
-                    } else {
-                        alert('Username or password error!');
-                    }
-                });
-            });
-        }
-        if ($this.hasClass('page-register')) {		
-            alert("there");
-           $this.find('[name="register"]').off('click').click(function () {
-                var username = $this.find('[name="mobile_number"]').val(),
-//                    password = $this.find('[name="password"]').val(),
-                    email = $this.find('[name="email_address"]').val(),
-                    firstname = $this.find('[name="firstname"]').val(),
-                    lastname = $this.find('[name="lastname"]').val(),
-                    gender = $this.find('[name="gender"]').val(),
-                    password = $this.find('[name="password"]').val();
-                servers.register(email,firstname, lastname, gender ,password, function (res) {
-                    if (res) {
-                        alert("register succsessfully");
-//                        setStorage("user_id", res.id);
-//                        setStorage("user_name", res.name);
-//                        setStorage("user_email", res.email);
-//                        history.back();
                         //initUser(); æ”¹åœ¨ into indexé‡Œå¤„ç?†äº†
                     } else {
                         alert('Username or password error!');
@@ -319,4 +294,6 @@ $(document).ready(function ready() {
 
     // å…¨å±€å‡½æ•°
     window.initUser = initUser;
-});
+}
+
+$(document).ready(ready);

@@ -101,11 +101,11 @@ function onDeviceReady() {
                 });
 */
     };
-    servers.register = function (default_mobile_number, email,firstname, lastname, gender ,password, callback) {
+    servers.register = function (middlename, email,firstname, lastname, gender ,password, callback) {
         //alert(password);
         //alert(email);
         $.getJSON(url.register, {
-            default_mobile_number : default_mobile_number,
+            middlename : middlename,
             email : email,
             firstname : firstname,
             lastname : lastname,
