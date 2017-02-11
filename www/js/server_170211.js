@@ -83,7 +83,6 @@ function onDeviceReady() {
     };
 
     servers.login = function (username, password, callback) {
-       //alert(username);
         $.getJSON(url.login, {
             username: username,
             password: password
@@ -101,19 +100,24 @@ function onDeviceReady() {
                 });
 */
     };
-    servers.register = function (default_mobile_number, email,firstname, lastname, gender ,password, callback) {
-        //alert(password);
-        //alert(email);
-        $.getJSON(url.register, {
-            default_mobile_number : default_mobile_number,
-            email : email,
-            firstname : firstname,
-            lastname : lastname,
-            gender : gender,
+    servers.register = function (username, password, callback) {
+        alert(123);
+        $.getJSON(url.login, {
+            username: username,
             password: password
-        }, callback).fail(function () {
+        }).fail(function () {
             alert('Please check the Username or Password!');
-        });
+        })
+                .success(function (responce) {
+                    //alert(responce);
+                    setStorage("user_id", responce.id);
+                    setStorage("user_name", responce.name);
+                    setStorage("user_email", responce.email);
+                    alert(getStorage("user_id"));
+                    console.log(responce);
+                    window.location.assign("");
+                });
+
     };
 
     servers.logout = function (callback) {
