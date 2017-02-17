@@ -31,7 +31,8 @@
 		
         menus: [{
             name: 'Home',
-            class_name: 'active'
+            class_name: 'active',
+            url: 'home.html'
         }, {
             name: 'Other Option',
             class_name: 'login_true table-view-divider',
@@ -50,14 +51,23 @@
             class_name: 'login_true logout'
         },
         ],
-        pages: [{
+        pages: [
+            {
+            id: 'home',
+            cmd: 'daily_sale',
+            title: 'Home',
+            pullRefresh: true,
+            num: 1,
+            total: 0
+        },{
             id: 'dailySale',
             cmd: 'daily_sale',
             title: 'Daily Sale',
             pullRefresh: true,
             num: 1,
             total: 0
-        }, {
+        },
+        {
             id: 'bestSeller',
             cmd: 'best_seller',
 			title: 'New Arrival',	//使用新�?new arrival

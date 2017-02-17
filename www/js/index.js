@@ -133,6 +133,29 @@ $(document).ready(function ready() {
             }
         });
     }
+//    function initPages() {
+//        initPageScroll({
+//            pages: defines.pages,
+//            onRefresh: function (callback) {
+//                initItems($('.products-grid').eq(currentPage), 'html', callback);
+//            },
+//            onLoadMore: function (callback) {
+//                initItems($('.products-grid').eq(currentPage), 'append', callback);
+//            },
+//            onLeft: function (id, index) {
+//                if (index === 0) {
+//                    toggleMenu();
+//                } else {
+//                    Mobilebone.transition($('#' + defines.pages[index - 1].id)[0], $('#' + id)[0], true);
+//                }
+//            },
+//            onRight: function (id, index) {
+//                if (index + 1 < defines.pages.length) {
+//                    Mobilebone.transition($('#' + defines.pages[index + 1].id)[0], $('#' + id)[0], false);
+//                }
+//            }
+//        });
+//    }
 
     // å?•ä¸ªäº§å“?åˆ—è¡¨å¤„ç?†
     function initItems($el, func, callback) {
@@ -210,12 +233,23 @@ $(document).ready(function ready() {
                 .siblings().removeClass('bullet-item-active');
 
             $page = $pages.eq(currentPage);
+            if(currentPage==0){
+                $('#header-pagination').hide();
+            }
+            console.log($page)
+            
             if (!$page.data('init')) {
+                
                 $('.page-loading').show();
+                 if(currentPage==0){
+                      $('.page-loading').hide();
+                 }else{
                 initItems($page, 'html', function () {
                     $('.page-loading').hide();
                 });
-                $page.data('init', true);
+                 $page.data('init', true);
+                 }
+               
             }
             $this.data('scroll').refresh(); // åˆ·æ–° scroll
             return;
@@ -241,7 +275,7 @@ $(document).ready(function ready() {
             });
         }
         if ($this.hasClass('page-register')) {		
-            alert("there");
+            //alert("there");
            $this.find('[name="register"]').off('click').click(function () {
                 var username = $this.find('[name="mobile_number"]').val(),
 //                    password = $this.find('[name="password"]').val(),

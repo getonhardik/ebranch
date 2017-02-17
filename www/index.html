@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link href="css/assets.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
+    <link href="css/custom-shuban.css" rel="stylesheet">
 </head>
 <body>
 <header class="header-index bar bar-nav out" id="header-fload">
@@ -13,7 +14,6 @@
     <a href="search.html" class="icon fa fa-search pull-left"></a>
     <a href="" data-formdata="" id="cartIcon" class="icon fa fa-shopping-cart pull-right"></a>
     <a class="icon fa fa-qrcode pull-right qrcode"></a>
-    <h2 class="title"><img src="images/logo.png" width="40%"></h2>
 </header>
 
 <div class="slider" id="firstTime">
@@ -103,7 +103,6 @@
     {{#each items}}
     <div class="item">
         <div class="item-inner">
-			<!--###### rest详情页的父Frame ######-->
 			<a href="productFrame.html" data-formdata="frameUrl=productDetail.html&entity_id={{entity_id}}&share=true" data-reload="root" data-ajax="true">
             <div class="product-image">
                 <img class="lazy small-image" data-original="{{image_url}}" alt="{{name}}">
